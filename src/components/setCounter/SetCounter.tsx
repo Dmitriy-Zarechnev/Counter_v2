@@ -13,10 +13,10 @@ type SetCounterPropsType = {
     onFocusInputChange: () => void
     setValuesIntoLocal: () => void
     error: ErrorType
-    }
+}
 
 export const SetCounter = (props: SetCounterPropsType) => {
-    const isCounterError = Object.values(props.error).some(error => error);
+    const isCounterError = Object.values(props.error).some(error => error)
 
     return (
         <section className={S.counter}>
@@ -26,7 +26,6 @@ export const SetCounter = (props: SetCounterPropsType) => {
                        onChange={props.onChangeInputMaxCount}
                        error={props.error.maxValueError}
                        onFocusInputChange={props.onFocusInputChange}
-                       setValuesIntoLocal={props.setValuesIntoLocal}
                 />
 
                 <Input title={'start value'}
@@ -34,7 +33,6 @@ export const SetCounter = (props: SetCounterPropsType) => {
                        onChange={props.onChangeInputMinCount}
                        error={props.error.minValueError}
                        onFocusInputChange={props.onFocusInputChange}
-                       setValuesIntoLocal={props.setValuesIntoLocal}
                 />
             </span>
 

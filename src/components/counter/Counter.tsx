@@ -1,7 +1,6 @@
 import React from 'react'
 import Button from '../button/Button'
 import S from './Counter.module.css'
-import {ErrorType} from '../../App'
 
 type CounterPropsType = {
     counter: number
@@ -9,40 +8,32 @@ type CounterPropsType = {
     minCount: number
     changeCounter: () => void
     resetCounter: () => void
-    onInputFocus: boolean
-    error: ErrorType
+    setNewCounter: () => void
 }
 
 const Counter = (props: CounterPropsType) => {
 
-    const isCounterError = Object.values(props.error).some(error => error);
-
     const textStyles = `${S.counter__display} 
-                               ${props.onInputFocus && S.onInputFocus}
-                               ${props.counter === props.maxCount ? S.maxCount : ''}
-                               ${isCounterError && S.error}
-                               `
-    const textValue =
-        isCounterError
-            ? 'Incorrect value🤬'
-            : props.onInputFocus
-                ? 'enter values and press \'SET\''
-                : props.counter
+                               ${props.counter === props.maxCount ? S.maxCount : ''}`
 
     return (
         <section className={S.counter}>
             <span className={textStyles}>
-                {textValue}
+                {props.counter}
             </span>
 
             <div className={S.counter__btn_box}>
                 <Button name={'INC'}
-                        disabled={props.counter === props.maxCount || props.onInputFocus || isCounterError}
+                        disabled={props.counter === props.maxCount}
                         onClick={props.changeCounter}
                 />
                 <Button name={'RESET'}
-                        disabled={props.counter === props.minCount || props.onInputFocus || isCounterError}
-                        onClick={props.resetCounter}/>
+                        disabled={props.counter === props.minCount}
+                        onClick={props.resetCounter}
+                />
+                <Button name={'SET'}
+                        onClick={props.setNewCounter}
+                />
             </div>
         </section>
     )

@@ -32,6 +32,7 @@ function App() {
     const [onInputFocus, setOnInputFocus] = useState<boolean>(false)
     const [error, setError] = useState<ErrorType>(ErrorDefault)
 
+    const [changeCounterWindow, setChangeCounterWindow] = useState<boolean>(false)
 
     //  ------ Get 'counter values' from localStorage ------
     useEffect(() => {
@@ -69,6 +70,7 @@ function App() {
     function setValuesIntoLocal() {
         setOnInputFocus(false)
         setCounter(minCount)
+        setNewCounter()
     }
 
 
@@ -92,34 +94,37 @@ function App() {
     }
 
 
-
     //  ------  Set OnInputFocus 'value' into useState ------
     function onFocusInputChange() {
         setOnInputFocus(true)
     }
 
+    //  ------  Change counter window ------
+    function setNewCounter() {
+        setChangeCounterWindow(!changeCounterWindow)
+    }
 
     return (
         <div className={S.app}>
-            <SetCounter
-                onInputFocus={onInputFocus}
-                maxCount={maxCount}
-                minCount={minCount}
-                onChangeInputMaxCount={onChangeInputMaxCount}
-                onChangeInputMinCount={onChangeInputMinCount}
-                onFocusInputChange={onFocusInputChange}
-                setValuesIntoLocal={setValuesIntoLocal}
-                error={error}
-            />
-
-            <Counter counter={counter}
-                     maxCount={maxCount}
-                     minCount={minCount}
-                     changeCounter={changeCounter}
-                     resetCounter={resetCounter}
-                     onInputFocus={onInputFocus}
-                     error={error}
-            />
+            {changeCounterWindow
+                ? <SetCounter
+                    onInputFocus={onInputFocus}
+                    maxCount={maxCount}
+                    minCount={minCount}
+                    onChangeInputMaxCount={onChangeInputMaxCount}
+                    onChangeInputMinCount={onChangeInputMinCount}
+                    onFocusInputChange={onFocusInputChange}
+                    setValuesIntoLocal={setValuesIntoLocal}
+                    error={error}
+                />
+                : <Counter counter={counter}
+                           maxCount={maxCount}
+                           minCount={minCount}
+                           changeCounter={changeCounter}
+                           resetCounter={resetCounter}
+                           setNewCounter={setNewCounter}
+                />
+            }
         </div>
     )
 }

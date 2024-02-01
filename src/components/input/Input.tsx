@@ -7,7 +7,6 @@ type InputPropsType = {
     onChange: (value: number) => void
     error: boolean
     onFocusInputChange: () => void
-    setValuesIntoLocal: () => void
 }
 
 export const Input = (props: InputPropsType) => {
@@ -29,7 +28,6 @@ export const Input = (props: InputPropsType) => {
                 type={'number'}
                 className={`${S.input} ${props.error && S.error}`}
                 onFocus={props.onFocusInputChange}
-                onBlur={props.setValuesIntoLocal}
             />
         </div>
     )

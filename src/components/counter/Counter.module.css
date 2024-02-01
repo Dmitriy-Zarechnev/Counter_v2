@@ -36,7 +36,7 @@
 .counter__btn_box {
     display: flex;
     flex-direction: row;
-    gap: 70px;
+    gap: 40px;
     justify-content: center;
     align-items: center;
     border: 5px solid var(--primary-border);
