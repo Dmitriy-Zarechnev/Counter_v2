@@ -1,0 +1,12 @@
+@import "../../ColorVar.module.css";
+
+.button {
+    font-size: 40px;
+    padding: 5px;
+    background-color: var(--primary-border);
+    color: var(--main-text);
+    border: none;
+}
+
+
+

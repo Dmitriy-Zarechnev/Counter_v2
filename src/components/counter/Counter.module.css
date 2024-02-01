@@ -1,0 +1,65 @@
+@import "../../ColorVar.module.css";
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 40px;
+    background-color: var(--secondary-bg);
+}
+
+.counter__display {
+    font-size: 70px;
+    color: var(--main-text);
+    text-align: center;
+    padding: 50px;
+    border: 5px solid var(--main-text);
+    border-radius: 20px;
+    margin-bottom: 30px;
+    background-color: var(--primary-border);
+}
+
+.counter__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+
+    background-color: transparent;
+    padding: 30px;
+}
+
+
+.counter__btn_box {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid var(--primary-border);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.maxCount {
+    color: var(--limit-color);
+    font-weight: 700;
+    border: 5px solid var(--limit-color);
+}
+
+.onInputFocus {
+    font-size: 35px;
+    color: var(--main-text);
+    border: 5px solid var(--main-text);
+    font-weight: 400;
+}
+
+.error{
+    font-size: 40px;
+    color: var(--limit-color);
+    font-weight: 400;
+    border: 5px solid var(--limit-color);
+}

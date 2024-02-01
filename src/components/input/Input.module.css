@@ -1,0 +1,31 @@
+.input_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    color: var(--primary-border);
+    font-size: 30px;
+}
+
+.input {
+    border-radius: 5px;
+    width: 175px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.input:focus-visible {
+    outline: none;
+    border: 3px solid var(--primary-border);
+}
+
+.input.error:focus-visible {
+    color: var(--main-text);
+    border: 3px solid var(--limit-color);
+}
+
+.error {
+    background-color: var(--error-color);
+    color: var(--main-text);
+}
